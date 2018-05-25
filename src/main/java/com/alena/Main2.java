@@ -26,19 +26,24 @@ public class Main2 {
             DataInputStream in = new DataInputStream(sin);
             DataOutputStream out = new DataOutputStream(sout);
 
+            DataBase db = new DataBase();
+            inDB = db.count+1;
+
             String line;
             do {
                 line = in.readUTF();
             }
             while (line.startsWith("Locked"));
             System.out.println("Файл открыт для чтения данным процессом.");
-            DataBase db = new DataBase();
-            inDB = db.count+1;
             out.writeUTF("Locked");
             List<Record> JSON = JSONList(jsonpath, inDB);
             out.writeUTF("Unlocked");
             System.out.println("Чтение из файла завершено.");
             db.add(JSON);
+            do {
+                line = in.readUTF();
+            }
+            while (line.startsWith("Locked"));
         } catch (Exception x) {
             x.printStackTrace();
         }

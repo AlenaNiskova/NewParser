@@ -99,10 +99,10 @@ public class JSONWork {
             Gson gson = new GsonBuilder().setPrettyPrinting().create();
             String StToGSON;
             if (!isFileExists) {
-                StToGSON = gson.toJson(rec) + ",\n     ";
+                StToGSON = gson.toJson(rec) + "     ";
                 isFileExists = true;
             } else {
-                StToGSON = gson.toJson(rec) + ",\n     ";
+                StToGSON = ",\n" + gson.toJson(rec) + "     ";
             }
             byte[] inputBytes = StToGSON.getBytes();
             RAF.seek(pos);

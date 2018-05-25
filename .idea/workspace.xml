@@ -13,43 +13,13 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/alena/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="64" column="39" lean-forward="true" selection-start-line="64" selection-start-column="39" selection-end-line="64" selection-end-column="39" />
+            <state relative-caret-position="177">
+              <caret line="114" column="35" lean-forward="true" selection-start-line="114" selection-start-column="35" selection-end-line="114" selection-end-column="35" />
               <folding>
                 <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Main2.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/alena/Main2.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="23" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="23" />
-              <folding>
-                <element signature="e#1707#1715#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FirstGUI.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/alena/FirstGUI.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="247">
-              <caret line="169" column="10" selection-start-line="169" selection-start-column="10" selection-end-line="169" selection-end-column="10" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="class#816:1587" />
-                <element signature="class#3663:4674" />
-                <element signature="class#4589:5332" />
-                <element signature="class#4441:5426" />
-                <element signature="class#6486:6624" />
-                <element signature="method#actionPerformed#0;class#6592:6781" />
               </folding>
             </state>
           </provider>
@@ -58,8 +28,48 @@
       <file leaf-file-name="JSON.json" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/JSON.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="395">
-              <caret line="1073" column="1" selection-start-line="1073" selection-start-column="1" selection-end-line="1073" selection-end-column="1" />
+            <state relative-caret-position="329">
+              <caret line="1700" column="1" lean-forward="true" selection-start-line="1700" selection-start-column="1" selection-end-line="1700" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Main2.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/alena/Main2.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="380">
+              <caret line="45" column="46" lean-forward="true" selection-start-line="45" selection-start-column="46" selection-end-line="45" selection-end-column="46" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1707#1715#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FirstGUI.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/alena/FirstGUI.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="323">
+              <caret line="127" column="27" selection-start-line="127" selection-start-column="27" selection-end-line="127" selection-end-column="27" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="class#816:1587" />
+                <element signature="class#6486:6624" />
+                <element signature="class#10645:11175" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="JSONWork.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/alena/JSONWork.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="169">
+              <caret line="104" column="55" selection-start-line="104" selection-start-column="55" selection-end-line="104" selection-end-column="55" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -72,6 +82,9 @@
         <option value="Class" />
       </list>
     </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -94,12 +107,12 @@
         <option value="$PROJECT_DIR$/src/main/java/com/alena/Threads/Texts.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/alena/DataBase.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/alena/Threads/Stores.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/alena/JSONWork.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/alena/GUI.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/alena/Main2.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/alena/JSONWork.java" />
         <option value="$PROJECT_DIR$/JSON.json" />
         <option value="$PROJECT_DIR$/src/main/java/com/alena/Main.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/alena/FirstGUI.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/alena/Main2.java" />
       </list>
     </option>
   </component>
@@ -109,6 +122,7 @@
     <option name="width" value="1386" />
     <option name="height" value="767" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
@@ -275,8 +289,8 @@
       <window_info anchor="right" id="Capture Analysis" order="3" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="right" id="Maven Projects" order="3" />
-      <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.12241653" />
+      <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.23847377" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
@@ -300,8 +314,13 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="31" />
+      <option name="time" value="34" />
     </breakpoint-manager>
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="arrow.getAttribute(&quot;class&quot;)" />
+      </configuration>
+    </watches-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/main/java/com/alena/Main.java">
@@ -319,6 +338,7 @@
         <state relative-caret-position="697">
           <caret line="41" column="29" lean-forward="true" selection-start-line="41" selection-start-column="29" selection-end-line="41" selection-end-column="29" />
           <folding>
+            <element signature="imports" expanded="true" />
             <element signature="e#1707#1715#0" expanded="true" />
           </folding>
         </state>
@@ -358,11 +378,8 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="class#816:1587" />
-            <element signature="class#3663:4674" />
-            <element signature="class#4589:5332" />
-            <element signature="class#4441:5426" />
             <element signature="class#6486:6624" />
-            <element signature="method#actionPerformed#0;class#6592:6781" />
+            <element signature="class#10645:11175" />
           </folding>
         </state>
       </provider>
@@ -497,35 +514,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/alena/JSONWork.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="118">
-          <caret line="101" column="55" selection-start-line="101" selection-start-column="55" selection-end-line="101" selection-end-column="55" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/JSON.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="395">
-          <caret line="1073" column="1" selection-start-line="1073" selection-start-column="1" selection-end-line="1073" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/alena/Main2.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="23" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="23" />
-          <folding>
-            <element signature="e#1707#1715#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/alena/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="64" column="39" lean-forward="true" selection-start-line="64" selection-start-column="39" selection-end-line="64" selection-end-column="39" />
+        <state relative-caret-position="169">
+          <caret line="104" column="55" selection-start-line="104" selection-start-column="55" selection-end-line="104" selection-end-column="55" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -534,16 +524,41 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/alena/FirstGUI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="169" column="10" selection-start-line="169" selection-start-column="10" selection-end-line="169" selection-end-column="10" />
+        <state relative-caret-position="323">
+          <caret line="127" column="27" selection-start-line="127" selection-start-column="27" selection-end-line="127" selection-end-column="27" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="class#816:1587" />
-            <element signature="class#3663:4674" />
-            <element signature="class#4589:5332" />
-            <element signature="class#4441:5426" />
             <element signature="class#6486:6624" />
-            <element signature="method#actionPerformed#0;class#6592:6781" />
+            <element signature="class#10645:11175" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JSON.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="329">
+          <caret line="1700" column="1" lean-forward="true" selection-start-line="1700" selection-start-column="1" selection-end-line="1700" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/alena/Main2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="45" column="46" lean-forward="true" selection-start-line="45" selection-start-column="46" selection-end-line="45" selection-end-column="46" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1707#1715#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/alena/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="177">
+          <caret line="114" column="35" lean-forward="true" selection-start-line="114" selection-start-column="35" selection-end-line="114" selection-end-column="35" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>

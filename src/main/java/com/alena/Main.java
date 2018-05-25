@@ -45,8 +45,8 @@ public class Main {
 
             WebDriver driver = new ChromeDriver(options);
             WebElement dynamicElement;
-            //https://www.podrygka.ru/catalog/podarki/?PAGEN_1=2&sortBy=property_rating&order=asc
-            driver.get("https://www.podrygka.ru/catalog/makiyazh/");
+            driver.get("https://www.podrygka.ru/catalog/podarki/?PAGEN_1=2&sortBy=property_rating&order=asc");
+            //driver.get("https://www.podrygka.ru/catalog/makiyazh/");
 
             FirstGUI firstGUI = new FirstGUI(driver);
 
@@ -60,7 +60,6 @@ public class Main {
             List<WebElement> ProductsUrl;
             List<WebElement> NextEl;
             String Next = driver.getCurrentUrl();
-            //String Next = "https://www.podrygka.ru/catalog/podarki/?PAGEN_1=2&sortBy=property_rating&order=asc";
             List<String> ThisTab = new ArrayList<String>();
             Thread texts, stores, pics;
 
@@ -101,7 +100,7 @@ public class Main {
 
             RandomAccessFile RAF = new RandomAccessFile("JSON.json", "rw");
             long wheretopast;
-            if (wasParsed) { wheretopast = RAF.length()-7; }
+            if (wasParsed) { wheretopast = RAF.length()-5; }
             else { wheretopast = RAF.length(); }
             RAF.seek(wheretopast);
             RAF.write("\n ]\n}".getBytes());
