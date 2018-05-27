@@ -6,6 +6,7 @@ import com.alena.Records.Store;
 
 import java.sql.*;
 import java.util.List;
+import java.util.Map;
 
 public class DataBase {
     private final String url = "jdbc:mysql://127.0.0.1:3306/pod?autoReconnect=true&useSSL=false&serverTimezone=UTC";
@@ -52,7 +53,63 @@ public class DataBase {
         return res.getRow();
     }
 
-    public void add(List<Record> List) throws SQLException {
+    public void close() throws SQLException {
+        res.close();
+        state.close();
+        con.close();
+    }
+
+    public Map<String, Record> check(Map<String, Record> Map) throws SQLException {
+        String temp = "CREATE TEMPORARY TABLE IF NOT EXISTS `temp` (\n" +
+                "  `Id` varchar(10));";
+        state.execute(temp);
+        con.setAutoCommit(false);
+        for (Record x: Map.values()) {
+            state.addBatch("INSERT INTO temp (Id) \n" +
+                    "VALUES ('" + x.getId() + "');");
+        }
+        state.executeBatch();
+        con.commit();
+        res = state.executeQuery("SELECT Id FROM temp INNER JOIN records USING(`Id`)");
+        while (res.next()) {
+            Map.remove(res.getString(1));
+        }
+        return Map;
+    }
+
+    public void add(Map<String, Record> Map) throws SQLException {
+        Map = check(Map);
+        con.setAutoCommit(false);
+        for (Record x: Map.values()) {
+            state.addBatch("INSERT INTO records (Id, Text) \n" +
+                    "VALUES ('" + x.getId() + "','" + x.getText() + "');");
+        }
+        state.executeBatch();
+        for (Record x: Map.values()) {
+            for (String pic : x.getPics()) {
+                state.addBatch("INSERT INTO pics (Id, Pic) \n" +
+                        "VALUES ('" + x.getId() + "','" + pic + "');");
+            }
+        }
+        state.executeBatch();
+        for (Record x: Map.values()) {
+            for (Review review : x.getReviews()) {
+                state.addBatch("INSERT INTO reviews (Id, Rating, Text) \n" +
+                        "VALUES ('" + x.getId() + "'," + review.getRating() + ",'" + review.getText() + "');");
+            }
+        }
+        state.executeBatch();
+        for (Record x: Map.values()) {
+            for (Store store : x.getStores()) {
+                state.addBatch("INSERT INTO stores (Id, Name, Availability) \n" +
+                        "VALUES ('" + x.getId() + "','" + store.getName() + "'," + store.getAvailability() + ");");
+            }
+        }
+        state.executeBatch();
+        con.commit();
+    }
+
+    public void Testadd(List<Record> List) throws SQLException {
         con.setAutoCommit(false);
         int k = 40;
         int m = 0;

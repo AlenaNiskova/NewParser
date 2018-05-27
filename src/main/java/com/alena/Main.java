@@ -35,8 +35,6 @@ public class Main {
             DataOutputStream out = new DataOutputStream(sout);
             String line = null;
 
-            out.writeUTF("Locked");
-            JSONWork jsonWork = new JSONWork("JSON.json");
             System.setProperty("webdriver.chrome.driver", ProjectsPath + "NewParser\\chromedriver.exe");
 
             ChromeOptions options = new ChromeOptions();
@@ -45,26 +43,34 @@ public class Main {
 
             WebDriver driver = new ChromeDriver(options);
             WebElement dynamicElement;
-            driver.get("https://www.podrygka.ru/catalog/podarki/?PAGEN_1=2&sortBy=property_rating&order=asc");
+            //driver.get("https://www.podrygka.ru/catalog/podarki/?PAGEN_1=2&sortBy=property_rating&order=asc");
             //driver.get("https://www.podrygka.ru/catalog/makiyazh/");
-
-            FirstGUI firstGUI = new FirstGUI(driver);
-
-            while (firstGUI.isVisible) {
-                Thread.sleep(1000);
-            }
 
             picsDirectory();
 
             boolean wasParsed = false;
             List<WebElement> ProductsUrl;
             List<WebElement> NextEl;
-            String Next = driver.getCurrentUrl();
+            //String Next = driver.getCurrentUrl();
             List<String> ThisTab = new ArrayList<String>();
             Thread texts, stores, pics;
+            String Next = "https://www.podrygka.ru/catalog/podarki/";
+            //String Next = "https://www.podrygka.ru/catalog/podarki/?PAGEN_1=2&sortBy=property_rating&order=asc";
 
             while (Next != null) {
+                out.writeUTF("Locked");
+                System.out.println("Файл открыт для записи.");
+
                 driver.get(Next);
+
+                FirstGUI firstGUI = new FirstGUI(driver);
+
+                while (firstGUI.isVisible) {
+                    Thread.sleep(1000);
+                }
+
+                JSONWork jsonWork = new JSONWork("JSON.json");
+
                 dynamicElement = (new WebDriverWait(driver, 10))
                         .until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("body > div.page-wrapper > header > div.header-logo")));
                 ProductsUrl = driver.findElements(By.cssSelector("div.products-list-item__header > a[href]"));
@@ -96,18 +102,19 @@ public class Main {
                     }
                     wasParsed = true;
                 }
+
+                RandomAccessFile RAF = new RandomAccessFile("JSON.json", "rw");
+                long wheretopast;
+                if (wasParsed) { wheretopast = RAF.length()-5; }
+                else { wheretopast = RAF.length(); }
+                RAF.seek(wheretopast);
+                RAF.write("\n ]\n}".getBytes());
+                RAF.close();
+                out.writeUTF("Unlocked");
+                System.out.println("Запись в файл завершена.");
             }
 
-            RandomAccessFile RAF = new RandomAccessFile("JSON.json", "rw");
-            long wheretopast;
-            if (wasParsed) { wheretopast = RAF.length()-5; }
-            else { wheretopast = RAF.length(); }
-            RAF.seek(wheretopast);
-            RAF.write("\n ]\n}".getBytes());
-            RAF.close();
-            out.writeUTF("Unlocked");
-            System.out.println("Запись в файл завершена.");
-
+            JSONWork jsonWork = new JSONWork("JSON.json");
             do {
                 line = in.readUTF();
             } while (line.startsWith("Locked"));
@@ -118,6 +125,7 @@ public class Main {
             System.out.println("Чтение из файла завершено.");
             driver.quit();
             GUI gui = new GUI(JSON);
+            out.writeUTF("Finished");
         } catch (Exception x) {
             x.printStackTrace();
         }

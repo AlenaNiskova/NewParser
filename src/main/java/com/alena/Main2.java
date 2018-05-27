@@ -6,8 +6,7 @@ import com.google.gson.Gson;
 import java.io.*;
 import java.net.InetAddress;
 import java.net.Socket;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class Main2 {
 
@@ -26,31 +25,44 @@ public class Main2 {
             DataInputStream in = new DataInputStream(sin);
             DataOutputStream out = new DataOutputStream(sout);
 
-            DataBase db = new DataBase();
-            inDB = db.count+1;
+            Map<String, Record> JSON = new HashMap<>();
 
-            String line;
-            do {
-                line = in.readUTF();
+            DataBase db = new DataBase();/*
+                inDB = db.count + 1;*/
+
+            try {
+                String line;
+                do {
+                    do {
+                        line = in.readUTF();
+                    }
+                    while (line.startsWith("Locked"));
+                    System.out.println("Файл открыт для чтения данным процессом.");
+                    out.writeUTF("Locked");
+                    Set<Record> Set = JSONList(jsonpath/*, inDB*/);
+                    for (Record x : Set) {
+                        JSON.put(x.getId(), x);
+                    }
+                    out.writeUTF("Unlocked");
+                    System.out.println("Чтение из файла завершено.");
+                    db.add(JSON);
+                    do {
+                        line = in.readUTF();
+                    }
+                    while (line.startsWith("Locked"));
+                    line = in.readUTF();
+                }
+                while (!line.startsWith("Finished"));
+            } finally {
+                db.close();
             }
-            while (line.startsWith("Locked"));
-            System.out.println("Файл открыт для чтения данным процессом.");
-            out.writeUTF("Locked");
-            List<Record> JSON = JSONList(jsonpath, inDB);
-            out.writeUTF("Unlocked");
-            System.out.println("Чтение из файла завершено.");
-            db.add(JSON);
-            do {
-                line = in.readUTF();
-            }
-            while (line.startsWith("Locked"));
         } catch (Exception x) {
             x.printStackTrace();
         }
     }
 
-    public static List<Record> JSONList(String path, int n) {
-        List<Record> From = new ArrayList<Record>();
+    public static Set<Record> JSONList(String path/*, int n*/) {
+        Set<Record> From = new LinkedHashSet<>();
         String st, strec;
         Record rec;
         int count = 0;
@@ -59,14 +71,14 @@ public class Main2 {
             RAF.seek(12);
             st = "";
             Gson gson = new Gson();
-            while ((st!=null) && ((!st.startsWith("{")) || (count!=n)) && (!st.startsWith(" ]"))) {
+            /*while ((st!=null) && ((!st.startsWith("{")) || (count!=n)) && (!st.startsWith(" ]"))) {
                 st = RAF.readLine();
                 if (st!=null) {
                     if (st.startsWith("{")) {
                         count++;
                     }
                 }
-            }
+            }*/
             while ((st!=null) && (!st.startsWith(" ]"))) {
                 strec = "";
                 while (!st.startsWith("}")) {

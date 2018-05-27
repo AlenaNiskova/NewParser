@@ -90,19 +90,19 @@ public class FirstGUI extends JFrame {
         for (WebElement el: driver.findElements(By.cssSelector("#mCSB_12_container > div[class^='filter-list-item']"))) {
             Line = el.findElement(By.cssSelector("div > label > span.filter-value-title"));
             LineSt = (String) js.executeScript("var element = arguments[0];return element.textContent;", Line);
-            mCSB_13.put(LineSt, el);
+            mCSB_12.put(LineSt, el);
         }
 
         for (WebElement el: driver.findElements(By.cssSelector("#mCSB_13_container > div[class^='filter-list-item']"))) {
             Land = el.findElement(By.cssSelector("div > label > span.filter-value-title"));
             LandSt = (String) js.executeScript("var element = arguments[0];return element.textContent;", Land);
-            mCSB_12.put(LandSt, el);
+            mCSB_13.put(LandSt, el);
         }
 
         for (WebElement el: driver.findElements(By.cssSelector("#mCSB_14_container > div[class^='filter-list-item']"))) {
             Stoke = el.findElement(By.cssSelector("div > label > span.filter-value-title"));
             StokeSt = (String) js.executeScript("var element = arguments[0];return element.textContent;", Stoke);
-            mCSB_12.put(StokeSt, el);
+            mCSB_14.put(StokeSt, el);
         }
 
         char ch = ' ';
@@ -119,13 +119,14 @@ public class FirstGUI extends JFrame {
         }
 
         JPanel panel = new JPanel();
+        panel.removeAll();
         panel.setLayout(new GridBagLayout());
         GridBagConstraints bag = new GridBagConstraints();
 
         Search = driver.findElement(By.cssSelector("#catalogFilterSearch > input[type='text']"));
         Search.clear();
         JTextField search = new JTextField();
-        search.setColumns(40);
+        search.setColumns(30);
         search.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -153,39 +154,49 @@ public class FirstGUI extends JFrame {
         panel.add(BrandCB, bag);
         panel.revalidate();
 
-        JComboBox StokeCB;
-        if (mCSB_14.keySet().size()!=0) {
-            JComboBox LineCB = addCB(frame, driver, mCSB_13);
-            bag.fill = GridBagConstraints.HORIZONTAL;
-            bag.gridx = 1;
-            bag.anchor = GridBagConstraints.WEST;
-            bag.insets.right = 5;
-            panel.add(LineCB, bag);
-            panel.revalidate();
+        JComboBox StokeCB, LandCB, LineCB;
+        JLabel label = new JLabel();
+        label.setPreferredSize(new Dimension(40, 10));
 
+        if (mCSB_14.keySet().size()!=0) {
+            LineCB = addCB(frame, driver, mCSB_12);
+            LandCB = addCB(frame, driver, mCSB_13);
             StokeCB = addCB(frame, driver, mCSB_14);
         }
-        else { StokeCB = addCB(frame, driver, mCSB_13); }
+        else {
+            LandCB = addCB(frame, driver, mCSB_12);
+            StokeCB = addCB(frame, driver, mCSB_13);
+            LineCB = addCB(frame, driver, mCSB_14);
+        }
         bag.fill = GridBagConstraints.HORIZONTAL;
+        bag.gridy = 1;
         bag.gridx = 1;
+        bag.anchor = GridBagConstraints.WEST;
+        bag.insets.right = 5;
+        panel.add(LineCB, bag);
+        panel.revalidate();
+
+        bag.fill = GridBagConstraints.HORIZONTAL;
+        bag.gridy = 1;
+        bag.gridx = 2;
+        bag.anchor = GridBagConstraints.EAST;
+        bag.insets.right = 5;
+        panel.add(LandCB, bag);
+        panel.revalidate();
+
+        bag.gridy = 2;
+        bag.gridx = 0;
+        bag.fill = GridBagConstraints.HORIZONTAL;
         bag.anchor = GridBagConstraints.WEST;
         bag.insets.right = 5;
         panel.add(StokeCB, bag);
         panel.revalidate();
 
-        JComboBox LandCB = addCB(frame, driver, mCSB_12);
-        bag.fill = GridBagConstraints.HORIZONTAL;
-        bag.gridy = 2;
-        bag.gridx = 0;
-        bag.anchor = GridBagConstraints.WEST;
-        bag.insets.right = 5;
-        panel.add(LandCB, bag);
-        panel.revalidate();
-
         JComboBox FilterCB = addCB(frame, driver, Filters);
         bag.fill = GridBagConstraints.HORIZONTAL;
+        bag.anchor = GridBagConstraints.EAST;
+        bag.gridy = 2;
         bag.gridx = 2;
-        bag.anchor = GridBagConstraints.WEST;
         bag.insets.right = 5;
         panel.add(FilterCB, bag);
         panel.revalidate();

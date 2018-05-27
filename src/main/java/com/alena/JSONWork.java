@@ -54,6 +54,7 @@ public class JSONWork {
         Record rec;
         if (toJSONMap.containsKey(id)) { rec = toJSONMap.get(id);}
         else { rec = new Record(id);}
+        text = text.replace("'", "\\'");
         rec.setText(text);
         check(rec);
     }
